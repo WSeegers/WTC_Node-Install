@@ -1,16 +1,18 @@
 #!/bin/sh
 
+$DOWNLOADL_PATH=$HOME/bin
+$NODE_VERSION=10.13.0
+
 clear
 	echo "\nDownloading Nodejs into your Downloads Folder!"
 	
-	curl "https://nodejs.org/dist/v10.13.0/node-v10.13.0.tar.gz" | tar -xf - -C /goinfre/$USER/Downloads || exit 1
-	cd /goinfre/$USER/Downloads/node-v10.13.0
+	mkdir -p $HOME/bin
+	curl "https://nodejs.org/dist/v10.13.0/node-v10.13.0.tar.gz" | tar -xf - -C $DOWNLOAD_PATH || exit 1
+	cd $DOWNLOAD_PATH/node-v10.13.0
 	./configure
 	make -j4
-	echo "" >> ~/.zshrc
-	echo "# Setup Node " >> ~/.zshrc
-	echo "export PATH=$HOME/bin:"$PWD:$PWD/out/bin:$PWD/deps/npm/bin:$PATH >> ~/.zshrc
-	echo "alias npm='npm-cli.js'" >> ~/.zshrc
-	source ~/.zshrc
+	ln -s $DOWNLOAD_PATH/node-v10.13.0/node
+	ln -s $DOWNLOAD_PATH/node-v10.13.0/deps/npm/bin/npm-cli.js npm
+	source $HOME/.zshrc
 				
 
