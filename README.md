@@ -4,7 +4,7 @@ This bash script allows students at WeThinkCode to be able to use NodeJS on the 
 
 # To Install
 
-` sh -c "$(curl -fsSL https://raw.githubusercontent.com/lancechant/WTC_Node-Install/master/node.sh)"`
+` sh -c "$(curl -fsSL https://raw.githubusercontent.com/WSeegers/WTC_Node-Install/master/node.sh)"`
 
 # How it Works
 
